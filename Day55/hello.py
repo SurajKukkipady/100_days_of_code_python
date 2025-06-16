@@ -12,10 +12,8 @@ def hello_world():
             '<img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2xkZXhvYWY3MDgwdTlnNDFqdWRocWgzdGNnOW1yNDBpczd3dmc4ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26DOJwj9M4npUa54A/giphy.gif" width=200>')
 
 def underline(f):
-    @wraps(f)
     def decorated_function(*args, **kwargs):
-        result = f(*args, **kwargs)
-        return f"<u>{result}</u>"
+        return f"<u>{f(*args, **kwargs)}</u>"
     return decorated_function
 
 @app.route("/bye")
